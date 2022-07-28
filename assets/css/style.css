@@ -138,6 +138,28 @@ main #hero-image .img-content img {
   object-position: center;
 }
 
+footer {
+  width: 100%;
+  height: 80px;
+  /* background-color: red; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom: -50%;
+  left: 0;
+  /* transform: translate(-50%, -50%); */
+}
+
+footer .mylink {
+  font-weight: 600;
+  color: var(--dark-color);
+}
+
+
+
+/* ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+
 
 /* App Page */
 #application {
@@ -211,6 +233,7 @@ main #hero-image .img-content img {
 #application #insert-section .card-insert .card-body .button-insert:hover {
   cursor: pointer;
   background-color: #7e7e7e;
+  transform: scale(1.1) perspective(1px);
 }
 
 
@@ -289,6 +312,12 @@ main #hero-image .img-content img {
   justify-content: center;
   align-items: center;
   gap: 6px;
+  transition: all 0.2s ease-in-out;
+}
+
+#application .card-search .searchbox .button-search:hover {
+  cursor: pointer;
+  opacity: 0.8;
 }
 
 /* Show section style */
@@ -405,6 +434,12 @@ main #hero-image .img-content img {
   font-family: var(--ibm-mono);
 }
 
+#application #show-section .card-show .data-container .card-data .data-text .data-sub-button [class^="button-"]:hover {
+  opacity: 0.8;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+}
+
 #application #show-section .card-show .data-container .card-data .data-text .data-sub-button .button-edit {
   width: 80px;
   height: 32px;
@@ -413,6 +448,7 @@ main #hero-image .img-content img {
   font-size: 12px;
   background-color: #000;
   color: #fff;
+  transition: all 0.3s ease-in-out;
 }
 
 #application #show-section .card-show .data-container .card-data .data-text .data-sub-button .button-delete {
@@ -423,6 +459,7 @@ main #hero-image .img-content img {
   font-size: 12px;
   background-color: #FF6262;
   color: #fff;
+  transition: all 0.3s ease-in-out;
 }
 
 #application #show-section .card-show .data-container .card-data .data-text .data-sub-button .button-checker {
@@ -433,6 +470,7 @@ main #hero-image .img-content img {
   font-size: 12px;
   background-color: #79E290;
   color: #000;
+  transition: all 0.3s ease-in-out;
 }
 
 .col-1 {width: 8.33%;}

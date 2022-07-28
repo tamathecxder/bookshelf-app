@@ -14,7 +14,7 @@
       <nav>
         <div class="nav-content">
           <img src="./assets/img/library-books.svg" alt="" />
-          <h2>Estante para libros</h2>
+          <h2>Mono-Bookshelf</h2>
         </div>
       </nav>
 
@@ -26,7 +26,15 @@
             </div>
             <div class="card-body">
               <h2>Insert your new list book here:</h2>
-              <button type="button" class="button-insert">+ Add new book</button>
+              <button type="button" id="myModalButton" class="button-insert">+ Add new book</button>
+
+              <div class="modal" id="myModalElement">
+                <!-- Modal content -->
+                <div class="modal-content">
+                  <span class="close">&times;</span>
+                  <p>Some text in the Modal..</p>
+                </div>
+              </div>
             </div>
           </div>
         </section>

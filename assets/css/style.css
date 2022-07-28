@@ -214,6 +214,82 @@ main #hero-image .img-content img {
 }
 
 
+/* search section */
+#application #search-section {
+  width: 83.33%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+#application .card-search {
+  width: 100%;
+  height: 200px;
+  background-color: #fff;
+  border: 1px solid #000;
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+}
+
+#application .card-search .search-label {
+  width: 100%;
+  height: auto;
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  /* background-color: #7e7e7e; */
+}
+
+#application .card-search .search-label h4 {
+  font-family: var(--ibm-mono);
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 26px;
+}
+
+#application .card-search .searchbox {
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  /* background-color: cyan; */
+} 
+
+#application .card-search .searchbox .search-input {
+  width: 80%;
+  height: 60px;
+  padding: 20px;
+  font-size: 14px;
+  background-color: var(--secondary-color);
+  border: none;
+}
+
+#application .card-search .searchbox .search-input:focus {
+  outline: 1px solid rgba(0, 0, 0, 0.6);
+}
+
+#application .card-search .searchbox .button-search {
+  width: 20%;
+  height: 60px;
+  background-color: var(--dark-color);
+  color: #fff;
+  font-family: var(--ibm-mono);
+  font-size: 18px;
+  font-weight: 600;
+  padding: 20px;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+}
 
 
 .col-1 {width: 8.33%;}

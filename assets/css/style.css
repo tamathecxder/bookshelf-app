@@ -1,0 +1,22 @@
+/* Fonts: */
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@600;700&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap');
+
+:root {
+  --comfortaa: 'Comfortaa', cursive;
+  --ibm-mono: 'IBM Plex Mono', monospace;
+  --dark-color: #494949;
+  --primary-color: #FFFDF6;
+  --secondary-color: #F2F0F0;
+}
+
+::before, 
+::after, * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--ibm-mono);
+  background-color: var(--primary-color);
+}

@@ -147,7 +147,7 @@ main #hero-image .img-content img {
   justify-content: center;
   align-items: center;
   position: relative;
-  background-color: aquamarine;
+  /* background-color: aquamarine; */
 }
 
 #application #insert-section {

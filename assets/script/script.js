@@ -20,7 +20,47 @@ const CUSTOM_SAVED_EVENT = 'saved-bookshelf';
 const CUSTON_RENDER_EVENT = 'render-bookshelf'
 
 const btnChecker = document.querySelectorAll('.button-checker');
-// console.log(btnChecker);
+
+function generateId() {
+  return +new Date();
+}
+
+function generateBookObject(id, title, author, year, isComplete) {
+  return {
+    id, title, author, year, isComplete
+  };
+}
+
+function isWebStorageExist() {
+  if (typeof (Storage) === undefined) {
+    alert("Your browser does not support the web save feature");
+    return false;
+  }
+
+  return true; 
+}
+
+function saveDataToStorage() {
+  if (isWebStorageExist()) {
+    const parsedData = JSON.stringify(books);
+    localStorage.setItem(WEB_STORAGE_KEY, parsedData);
+    document.dispatchEvent(new Event(CUSTOM_SAVED_EVENT));
+  }
+}
+
+function addBookList() {
+  const titleInput = document.getElementById('title').value;
+  const authorInput = document.getElementById('author').value;
+  const yearInput = document.getElementById('year').value;
+  const checkbox = document.getElementById('completed-checkbox').value;
+
+  const generatedRandomID = generateId();
+  const bookObject = generateBookObject(generatedRandomID, titleInput, authorInput, yearInput, checkbox);
+  books.unshift(bookObject);
+
+  document.dispatchEvent(new Event(CUSTON_RENDER_EVENT));
+  saveDataToStorage();
+}
 
 
 

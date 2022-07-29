@@ -1,4 +1,6 @@
-console.log('Hello, World');
+// button check
+const btnChecker = document.querySelectorAll('.button-checker');
+console.log(btnChecker);
 
 // dapatkan element Modal
 const modal = document.getElementById('myModalElement');
@@ -25,3 +27,35 @@ window.addEventListener('click', (event) => {
     modal.style.display = 'none';
   }
 });
+
+
+// NAV AND TABS
+function openTabs(evt, sectionName) {
+  var i, tabcontent, tablinks;
+  const sectionTarget = document.getElementById(sectionName);
+  
+  tabcontent = document.getElementsByClassName("tabcontent");
+
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+
+  for (i = 0; i < btnChecker.length; i++) {
+    if (sectionName == 'finished') {
+      btnChecker[i].innerText = 'Mark NOT finished';
+    } else {
+      btnChecker[i].innerText = 'Mark finished';
+    }
+  }
+  
+  
+  sectionTarget.style.display = "flex";
+  evt.currentTarget.className += " active";
+}
+
+

@@ -82,6 +82,36 @@ function findBookIndex(bookId) {
   return -1;
 }
 
+function addBookToCompleted(bookId) {
+  const bookTarget = findBook(bookId);
+
+  if (bookTarget == null) return;
+
+  bookTarget.isCompleted = true;
+  document.dispatchEvent(new Event(CUSTON_RENDER_EVENT));
+  saveDataToStorage();
+}
+
+function undoBookFromCompleted(bookId) {
+  const bookTarget = findBookIndex(bookId);
+
+  if (bookTarget == null) return;
+
+  bookTarget.isCompleted = false;
+  document.dispatchEvent(new Event(CUSTON_RENDER_EVENT));
+  saveDataToStorage();
+}
+
+function removeBookFromCompleted(bookId) {
+  const bookTarget = findBookIndex(bookId);
+  
+  if (bookTarget == null) return;
+  
+  bookTarget.splice(bookTarget, 1);
+  document.dispatchEvent(new Event(CUSTON_RENDER_EVENT));
+  saveDataToStorage();
+}
+
 
 
 

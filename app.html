@@ -33,14 +33,28 @@
                 <div class="modal-content">
                   <div class="modal-header">
                     <span class="close" id="closeModal">&times;</span>
-                    <h2>Modal Header</h2>
+                    <h2 class="modal-header-text">Input your book into the form below</h2>
                   </div>
                   <div class="modal-body">
-                    <p>Some text in the Modal Body</p>
-                    <p>Some other text...</p>
-                  </div>
-                  <div class="modal-footer">
-                    <h3>Modal Footer</h3>
+                    <form action="" class="form-container">
+                      <div class="form-wrap">
+                        <label for="title">Book title:</label>
+                        <input type="text" class="form-control" id="title" name="title">
+                      </div>
+                      <div class="form-wrap">
+                        <label for="author">Book author:</label>
+                        <input type="text" class="form-control" id="author" name="author">
+                      </div>
+                      <div class="form-wrap">
+                        <label for="year">Book year:</label>
+                        <input type="text" class="form-control" id="year" name="year">
+                      </div>
+                      <div class="form-wrap form-check">
+                        <input type="checkbox" name="finished-checkbox" id="finished-checkbox" class="finished-checkbox">
+                        <label for="finished-checkbox">Finished Reading</label>
+                      </div>
+                      <button type="submit" class="button-submit">Submit your book to the "unfinished reading" section</button>
+                    </form>
                   </div>
                 </div>
               </div>

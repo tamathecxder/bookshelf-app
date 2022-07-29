@@ -268,6 +268,8 @@ footer .mylink:hover {
   padding: 0;
   border: 1px solid #888;
   width: 50%;
+  border-radius: 8px;
+  overflow: hidden;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
   -webkit-animation-name: animatetop;
   -webkit-animation-duration: 0.4s;
@@ -303,19 +305,73 @@ footer .mylink:hover {
 
 .modal-header {
   padding: 16px 16px;
-  background-color: var(--secondary-color);
+  background-color: transparent;
   color: white;
 }
 
-.modal-body {padding: 40px 16px;}
-
-.modal-footer {
-  padding: 16px 16px;
-  background-color: var(--secondary-color);
-  color: var(--dark-color);
+.modal-header .modal-header-text {
+  font-family: var(--comfortaa) !important;
+  font-size: 20px !important;
 }
 
 
+.modal-body {padding: 20px 40px 40px 40px;}
+
+.modal-body .form-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  font-family: var(--comfortaa);
+  /* background-color: red; */
+}
+
+.modal-body .form-container .form-wrap {
+  width: 100%;
+  margin: 0 0 26px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 6px;
+  /* background-color: cyan; */
+}
+
+.modal-body .form-container .form-wrap label {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.modal-body .form-container .form-wrap .form-control {
+  width: 100%;
+  height: 42px;
+  padding: 1rem;
+  border: 1px solid rgba(175, 175, 175, 0.1);
+  background-color: var(--secondary-color);
+}
+
+.modal-body .form-container .form-check {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+} 
+
+.modal-body .form-container .button-submit {
+  width: 100%;
+  height: 100%;
+  padding: 16px 0;
+  border: none;
+  background-color: #366efc;
+  font-size: 14px;
+  color: #fff;
+  transition: all 0.3s ease-in-out;
+}
+
+.modal-body .form-container .button-submit:hover {
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  background-color: #5E8BFF;
+}
 
 /* search section */
 #application #search-section {

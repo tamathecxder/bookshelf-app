@@ -1,16 +1,17 @@
 /* Fonts: */
-@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@600;700&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@600;700&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap");
 
 :root {
-  --comfortaa: 'Comfortaa', cursive;
-  --ibm-mono: 'IBM Plex Mono', monospace;
+  --comfortaa: "Comfortaa", cursive;
+  --ibm-mono: "IBM Plex Mono", monospace;
   --dark-color: #494949;
-  --primary-color: #FFFDF6;
-  --secondary-color: #F2F0F0;
+  --primary-color: #fffdf6;
+  --secondary-color: #f2f0f0;
 }
 
-::before, 
-::after, * {
+::before,
+::after,
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -160,10 +161,7 @@ footer .mylink:hover {
   opacity: 0.8;
 }
 
-
-
 /* ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
-
 
 /* App Page */
 #application {
@@ -241,11 +239,6 @@ footer .mylink:hover {
   transform: scale(1.1) perspective(1px);
 }
 
-
-
-
-
-
 /* The Modal (background) */
 .modal {
   display: none; /* Hidden by default */
@@ -257,8 +250,8 @@ footer .mylink:hover {
   width: 100%; /* Full width */
   height: 100%; /* Full height */
   overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
 }
 
 /* Modal Content */
@@ -271,22 +264,34 @@ footer .mylink:hover {
   width: 50%;
   border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   -webkit-animation-name: animatetop;
   -webkit-animation-duration: 0.4s;
   animation-name: animatetop;
-  animation-duration: 0.4s
+  animation-duration: 0.4s;
 }
 
 /* Add Animation */
 @-webkit-keyframes animatetop {
-  from {top:-300px; opacity:0} 
-  to {top:0; opacity:1}
+  from {
+    top: -300px;
+    opacity: 0;
+  }
+  to {
+    top: 0;
+    opacity: 1;
+  }
 }
 
 @keyframes animatetop {
-  from {top:-300px; opacity:0}
-  to {top:0; opacity:1}
+  from {
+    top: -300px;
+    opacity: 0;
+  }
+  to {
+    top: 0;
+    opacity: 1;
+  }
 }
 
 /* The Close Button */
@@ -315,8 +320,9 @@ footer .mylink:hover {
   font-size: 20px !important;
 }
 
-
-.modal-body {padding: 20px 40px 40px 40px;}
+.modal-body {
+  padding: 20px 40px 40px 40px;
+}
 
 .modal-body .form-container {
   display: flex;
@@ -355,7 +361,7 @@ footer .mylink:hover {
   display: flex;
   flex-direction: row;
   justify-content: start;
-} 
+}
 
 .modal-body .form-container .button-submit {
   width: 100%;
@@ -371,7 +377,7 @@ footer .mylink:hover {
 .modal-body .form-container .button-submit:hover {
   cursor: pointer;
   transition: all 0.3s ease-in-out;
-  background-color: #5E8BFF;
+  background-color: #5e8bff;
 }
 
 /* search section */
@@ -420,7 +426,7 @@ footer .mylink:hover {
   justify-content: start;
   align-items: center;
   /* background-color: cyan; */
-} 
+}
 
 #application .card-search .searchbox .search-input {
   width: 80%;
@@ -474,12 +480,6 @@ footer .mylink:hover {
   overflow: hidden;
 }
 
-
-
-
-
-
-
 /* Nav and Tabs */
 #application #show-section .card-show .nav-and-tabs {
   width: 100%;
@@ -520,26 +520,23 @@ footer .mylink:hover {
 }
 
 /* Tab Content */
-#application #show-section .card-show .tabcontent {
+.tabcontent {
   display: none;
-  justify-content: space-between;
-  align-items: center;
-  gap: 20px;
   padding: 34px 40px;
   width: 100%;
   height: auto;
   /* background-color: coral; */
 }
 
-#application #show-section .card-show .tabcontent .card-data {
-  width: 50%;
+.tabcontent .card-data {
+  width: 100%;
   height: auto;
   border-radius: 12px;
   background-color: #fff;
   border: 1px solid #000;
 }
 
-#application #show-section .card-show .tabcontent .card-data .data-text {
+.tabcontent .card-data .data-text {
   padding: 40px;
   display: flex;
   flex-direction: column;
@@ -548,7 +545,7 @@ footer .mylink:hover {
   width: 100%;
 }
 
-#application #show-section .card-show .tabcontent .card-data .data-text .data-desc {
+.tabcontent .card-data .data-text .data-desc {
   width: 100%;
   display: flex;
   justify-content: center;
@@ -557,12 +554,12 @@ footer .mylink:hover {
   /* background-color: lightblue; */
 }
 
-#application #show-section .card-show .tabcontent .card-data .data-text .data-desc h2 {
+.tabcontent .card-data .data-text .data-desc h2 {
   font-size: 24px;
   margin-bottom: 1rem;
 }
 
-#application #show-section .card-show .tabcontent .card-data .data-text .data-desc .data-sub-desc {
+.tabcontent .card-data .data-text .data-desc .data-sub-desc {
   width: 100%;
   display: flex;
   justify-content: stretch;
@@ -570,16 +567,16 @@ footer .mylink:hover {
   margin-bottom: 20px;
 }
 
-#application #show-section .card-show .tabcontent .card-data .data-text .data-desc .data-sub-desc h4 {
+.tabcontent .card-data .data-text .data-desc .data-sub-desc h4 {
   width: 30%;
 }
 
-#application #show-section .card-show .tabcontent .card-data .data-text .data-desc .data-sub-desc span {
+.tabcontent .card-data .data-text .data-desc .data-sub-desc span {
   font-size: 18px;
   font-weight: 400;
 }
 
-#application #show-section .card-show .tabcontent .card-data .data-text .data-sub-button {
+.tabcontent .card-data .data-text .data-sub-button {
   width: 100%;
   height: 100%;
   display: flex;
@@ -590,13 +587,13 @@ footer .mylink:hover {
   font-family: var(--ibm-mono);
 }
 
-#application #show-section .card-show .tabcontent .card-data .data-text .data-sub-button [class^="button-"]:hover {
+.tabcontent .card-data .data-text .data-sub-button [class^="button-"]:hover {
   opacity: 0.8;
   transition: all 0.3s ease-in-out;
   cursor: pointer;
 }
 
-#application #show-section .card-show .tabcontent .card-data .data-text .data-sub-button .button-edit {
+.tabcontent .card-data .data-text .data-sub-button .button-edit {
   width: 80px;
   height: 32px;
   border: none;
@@ -607,41 +604,69 @@ footer .mylink:hover {
   transition: all 0.3s ease-in-out;
 }
 
-#application #show-section .card-show .tabcontent .card-data .data-text .data-sub-button .button-delete {
+.tabcontent .card-data .data-text .data-sub-button .button-delete {
   width: 80px;
   height: 32px;
   border: none;
   font-weight: 500;
   font-size: 12px;
-  background-color: #FF6262;
+  background-color: #ff6262;
   color: #fff;
   transition: all 0.3s ease-in-out;
 }
 
-#application #show-section .card-show .tabcontent .card-data .data-text .data-sub-button .button-checker {
+.tabcontent .card-data .data-text .data-sub-button .button-checker {
   width: 120px;
   height: 32px;
   border: none;
   font-weight: 500;
   font-size: 12px;
-  background-color: #79E290;
+  background-color: #79e290;
   color: #000;
   transition: all 0.3s ease-in-out;
 }
 
-.col-1 {width: 8.33%;}
-.col-2 {width: 16.66%;}
-.col-3 {width: 25%;}
-.col-4 {width: 33.33%;}
-.col-5 {width: 41.66%;}
-.col-6 {width: 50%;}
-.col-7 {width: 58.33%;}
-.col-8 {width: 66.66%;}
-.col-9 {width: 75%;}
-.col-10 {width: 83.33%;}
-.col-11 {width: 91.66%;}
-.col-12 {width: 100%;}
+.col-1 {
+  width: 8.33%;
+}
+.col-2 {
+  width: 16.66%;
+}
+.col-3 {
+  width: 25%;
+}
+.col-4 {
+  width: 33.33%;
+}
+.col-5 {
+  width: 41.66%;
+}
+.col-6 {
+  width: 50%;
+}
+.col-7 {
+  width: 58.33%;
+}
+.col-8 {
+  width: 66.66%;
+}
+.col-9 {
+  width: 75%;
+}
+.col-10 {
+  width: 83.33%;
+}
+.col-11 {
+  width: 91.66%;
+}
+.col-12 {
+  width: 100%;
+}
 
 .mb-40 {
   margin-bottom: 40px;
+}
+
+.force-flex {
+  display: flex !important;
 }

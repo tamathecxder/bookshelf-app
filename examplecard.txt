@@ -1,0 +1,18 @@
+<div class="card-data col-6">
+  <div class="data-text">
+    <div class="data-desc">
+      <h2>Manusia Brontosaurus</h2>
+      <div class="data-sub-desc">
+        <h4>Author: </h4>
+        <span>Raditya Dika</span>
+      </div>
+      <div class="data-sub-desc">
+        <h4>Year: </h4>
+        <span>2014</span>
+      </div>
+    </div>
+    <div id="btn-container">
+      
+    </div>
+  </div>
+</div>

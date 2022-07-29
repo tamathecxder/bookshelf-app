@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="./assets/css/style.css" />
   </head>
   <body>
-
     <!-- Custom container/wrapper -->
     <div class="wrapper">
       <nav>
@@ -22,7 +21,7 @@
         <section id="insert-section" class="mb-40">
           <div class="card-insert">
             <div class="card-head">
-              <img src="./assets/img/subtle-pattern.png" alt="pattern">
+              <img src="./assets/img/subtle-pattern.png" alt="pattern" />
             </div>
             <div class="card-body">
               <h2>Insert your new book list here:</h2>
@@ -36,21 +35,21 @@
                     <h2 class="modal-header-text">Input your book into the form below</h2>
                   </div>
                   <div class="modal-body">
-                    <form action="" class="form-container">
+                    <form action="" class="form-container" id="myForm">
                       <div class="form-wrap">
                         <label for="title">Book title:</label>
-                        <input type="text" class="form-control" id="title" name="title" required>
+                        <input type="text" class="form-control" id="title" name="title" required />
                       </div>
                       <div class="form-wrap">
                         <label for="author">Book author:</label>
-                        <input type="text" class="form-control" id="author" name="author" required>
+                        <input type="text" class="form-control" id="author" name="author" required />
                       </div>
                       <div class="form-wrap">
                         <label for="year">Book year:</label>
-                        <input type="number" min="1500" max="2025" class="form-control" id="year" name="year" required>
+                        <input type="number" min="1500" max="2025" class="form-control" id="year" name="year" required />
                       </div>
                       <div class="form-wrap form-check">
-                        <input type="checkbox" name="completed-checkbox" id="completed-checkbox" class="completed-checkbox">
+                        <input type="checkbox" name="completed-checkbox" id="completed-checkbox" class="completed-checkbox" />
                         <label for="completed-checkbox">Completed Reading</label>
                       </div>
                       <button type="submit" class="button-submit">Submit your book to the "unfinished reading" section</button>
@@ -67,9 +66,9 @@
               <h4>Search based on predefined criteria:</h4>
             </div>
             <div class="searchbox">
-              <input type="text" class="search-input" name="search-input" id="search-input" placeholder="This feature is to search for your book ">
+              <input type="text" class="search-input" name="search-input" id="search-input" placeholder="This feature is to search for your book " />
               <button type="submit" class="button-search">
-                <img src="./assets/img/fa_search.svg" alt="">
+                <img src="./assets/img/fa_search.svg" alt="" />
                 <span>Search</span>
               </button>
             </div>
@@ -82,88 +81,11 @@
               <button class="tablinks" onclick="openTabs(event, 'not-finished')">Not Finished Reading</button>
             </div>
             <div class="tabcontent" id="finished">
-              <div class="card-data col-6">
-                <div class="data-text">
-                  <div class="data-desc">
-                    <h2>Rich Dad Poor Dad</h2>
-                    <div class="data-sub-desc">
-                      <h4>Author: </h4>
-                      <span>Robert Kiyosaki</span>
-                    </div>
-                    <div class="data-sub-desc">
-                      <h4>Year: </h4>
-                      <span>1996</span>
-                    </div>
-                  </div>
-                  <div class="data-sub-button">
-                    <button type="button" class="button-edit">Edit</button>
-                    <button type="button" class="button-delete">Hapus</button>
-                    <button type="button" class="button-checker">Mark blablabla</button>
-                  </div>
-                </div>
-              </div>
-              <div class="card-data col-6">
-                <div class="data-text">
-                  <div class="data-desc">
-                    <h2>Manusia Brontosaurus</h2>
-                    <div class="data-sub-desc">
-                      <h4>Author: </h4>
-                      <span>Raditya Dika</span>
-                    </div>
-                    <div class="data-sub-desc">
-                      <h4>Year: </h4>
-                      <span>2014</span>
-                    </div>
-                  </div>
-                  <div class="data-sub-button">
-                    <button type="button" class="button-edit">Edit</button>
-                    <button type="button" class="button-delete">Hapus</button>
-                    <button type="button" class="button-checker">Mark blablabla</button>
-                  </div>
-                </div>
-              </div>
+              
             </div>
+
             <div class="tabcontent" id="not-finished">
-              <div class="card-data col-6">
-                <div class="data-text">
-                  <div class="data-desc">
-                    <h2>Filosofi Teras</h2>
-                    <div class="data-sub-desc">
-                      <h4>Author: </h4>
-                      <span>Henry Manampiring</span>
-                    </div>
-                    <div class="data-sub-desc">
-                      <h4>Year: </h4>
-                      <span>2016</span>
-                    </div>
-                  </div>
-                  <div class="data-sub-button">
-                    <button type="button" class="button-edit">Edit</button>
-                    <button type="button" class="button-delete">Hapus</button>
-                    <button type="button" class="button-checker">Mark blablabla</button>
-                  </div>
-                </div>
-              </div>
-              <div class="card-data col-6">
-                <div class="data-text">
-                  <div class="data-desc">
-                    <h2>Beyond God and Evil</h2>
-                    <div class="data-sub-desc">
-                      <h4>Author: </h4>
-                      <span>Fredrich Nietzsche</span>
-                    </div>
-                    <div class="data-sub-desc">
-                      <h4>Year: </h4>
-                      <span>1886</span>
-                    </div>
-                  </div>
-                  <div class="data-sub-button">
-                    <button type="button" class="button-edit">Edit</button>
-                    <button type="button" class="button-delete">Hapus</button>
-                    <button type="button" class="button-checker">Mark blablabla</button>
-                  </div>
-                </div>
-              </div>
+
             </div>
           </div>
         </section>

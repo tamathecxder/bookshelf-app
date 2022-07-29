@@ -62,6 +62,25 @@ function addBookList() {
   saveDataToStorage();
 }
 
+function findBook(bookId) {
+  for (const book of books) {
+    if (book.id === bookId) {
+      return book;
+    }
+  }
+
+  return null;
+}
+
+function findBookIndex(bookId) {
+  for (const bookIndex in books) {
+    if (bookIndex.id === bookId) {
+      return bookIndex;
+    }
+  }
+
+  return -1;
+}
 
 
 

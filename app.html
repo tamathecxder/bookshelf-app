@@ -39,19 +39,19 @@
                     <form action="" class="form-container">
                       <div class="form-wrap">
                         <label for="title">Book title:</label>
-                        <input type="text" class="form-control" id="title" name="title">
+                        <input type="text" class="form-control" id="title" name="title" required>
                       </div>
                       <div class="form-wrap">
                         <label for="author">Book author:</label>
-                        <input type="text" class="form-control" id="author" name="author">
+                        <input type="text" class="form-control" id="author" name="author" required>
                       </div>
                       <div class="form-wrap">
                         <label for="year">Book year:</label>
-                        <input type="text" class="form-control" id="year" name="year">
+                        <input type="number" min="1500" max="2025" class="form-control" id="year" name="year" required>
                       </div>
                       <div class="form-wrap form-check">
-                        <input type="checkbox" name="finished-checkbox" id="finished-checkbox" class="finished-checkbox">
-                        <label for="finished-checkbox">Finished Reading</label>
+                        <input type="checkbox" name="completed-checkbox" id="completed-checkbox" class="completed-checkbox">
+                        <label for="completed-checkbox">Completed Reading</label>
                       </div>
                       <button type="submit" class="button-submit">Submit your book to the "unfinished reading" section</button>
                     </form>

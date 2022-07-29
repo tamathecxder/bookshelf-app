@@ -1,14 +1,38 @@
-// button check
+/**
+* 
+* JSON Format:
+*  [
+*    {
+*     id: string | number,
+      title: string,
+      author: string,
+      year: number,
+      isComplete: boolean,
+*    }
+*  ]
+* 
+*/
+
+// Initialize Important Variables
+const books = [];
+const WEB_STORAGE_KEY = 'BOOKSHELF_APPS';
+const CUSTOM_SAVED_EVENT = 'saved-bookshelf';
+const CUSTON_RENDER_EVENT = 'render-bookshelf'
+
 const btnChecker = document.querySelectorAll('.button-checker');
-console.log(btnChecker);
+// console.log(btnChecker);
 
-// dapatkan element Modal
+
+
+
+
+
+/**
+ * Modal Section 
+ */
+
 const modal = document.getElementById('myModalElement');
-
-// dapatkan button untuk membuka Modal
 const button = document.getElementById('myModalButton')
-
-// dapatkan <span> yang fungsinya nanti untuk penutup dari element modal
 const closeModal = document.getElementById('closeModal'); 
 
 // ketika user click button nya, maka modal akan terbuka
@@ -29,18 +53,19 @@ window.addEventListener('click', (event) => {
 });
 
 
-// NAV AND TABS
+/**
+ * Nav and Tabs section
+ */
 function openTabs(evt, sectionName) {
-  var i, tabcontent, tablinks;
+  let i;
+  const tabcontent = document.getElementsByClassName("tabcontent"); 
+  const tablinks = document.getElementsByClassName("tablinks"); 
   const sectionTarget = document.getElementById(sectionName);
-  
-  tabcontent = document.getElementsByClassName("tabcontent");
 
   for (i = 0; i < tabcontent.length; i++) {
     tabcontent[i].style.display = "none";
   }
 
-  tablinks = document.getElementsByClassName("tablinks");
   for (i = 0; i < tablinks.length; i++) {
     tablinks[i].className = tablinks[i].className.replace(" active", "");
   }
@@ -52,7 +77,6 @@ function openTabs(evt, sectionName) {
       btnChecker[i].innerText = 'Mark finished';
     }
   }
-  
   
   sectionTarget.style.display = "flex";
   evt.currentTarget.className += " active";

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tabbed Navigation</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .container {
+      width: 1200px;
+      height: 100vh;
+      margin: auto;
+      padding: 20px 40px;
+    }
+
+    .img-wrapper {
+      flex: 1 0 100%;
+      flex-wrap: wrap;
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .img-wrapper .content {
+      width: 30%;
+      height: 250px;
+      background-color: #aeaeae;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      border: 1px solid rgba(0, 0, 0, 0.6);
+    }
+
+    .img-wrapper .content img {
+      object-fit: cover;
+      object-position: center;
+      width: 400px;
+    }
+    
+    .tabs {
+      height: 40px;
+      display: flex;
+      justify-content: center;
+      margin: 0 2px 40px 2px;
+      box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.2);
+      font-weight: 600;
+    }
+
+    .tabs > * {
+      width: 100%;
+      height: 100%;
+      color: dimgray;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .tabs > *:hover:not(.active) {
+      background-color: rgb(220, 220, 220);
+    }
+
+    .tabs > .active {
+      color: white;
+      background-color: #4CAF50;
+    }
+
+    .panel {
+      display: none;
+    }
+
+    .panel.active {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="tabs">
+      <div class="tab active" data-target="Lists">Lists</div>
+      <div class="tab" data-target="Grid">Grid</div>
+      <div class="tab" data-target="Something">Something</div>
+    </div>
+    <div id="panels">
+      <div class="Lists panel active">
+        <div class="img-wrapper">
+          <div class="content">
+            <img src="https://source.unsplash.com/500x400?gaming" alt="">
+          </div>
+          <div class="content">
+            <img src="https://source.unsplash.com/500x400?tech" alt="">
+          </div>
+          <div class="content">
+            <img src="https://source.unsplash.com/500x400?school" alt="">
+          </div>
+          <div class="content">
+            <img src="https://source.unsplash.com/500x400?gaming" alt="">
+          </div>
+          <div class="content">
+            <img src="https://source.unsplash.com/500x400?tech" alt="">
+          </div>
+          <div class="content">
+            <img src="https://source.unsplash.com/500x400?school" alt="">
+          </div>
+        </div>
+      </div>
+      <div class="Grid panel">
+        <p>Panel 2 text. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iure molestias hic, facere molestiae architecto aperiam voluptates! Cupiditate odio aperiam, dolorem nihil magni temporibus assumenda hic quidem totam repudiandae dolorum. Ipsam!</p>
+      </div>
+      <div class="Something panel"><p>Panel 3 text. Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis rerum, ut, pariatur dolorem incidunt voluptates hic alias rem laudantium debitis ipsam. Ab sint ad dolore blanditiis? Aliquid eveniet porro est.</p></div>
+    </div>
+  </div>
+  
+  <script>
+    const tabs = document.querySelectorAll('.tabs');
+    const tab = document.querySelectorAll('.tab');
+    const panel = document.querySelectorAll('.panel');
+
+    function onTabClick(event) {
+      // deactive existing active tabs and panel
+      for (let i = 0; i < tab.length; i++) {
+        tab[i].classList.remove("active");
+      }
+
+      for (let i = 0; i < panel.length; i++) {
+        panel[i].classList.remove("active");
+      }
+
+      // activate new tabs and panel
+      event.target.classList.add('active');
+      let classString = event.target.getAttribute('data-target');
+      console.log(classString);
+      document.getElementById('panels').getElementsByClassName(classString)[0].classList.add("active");
+    }
+
+    for (let i = 0; i < tab.length; i++) {
+      tab[i].addEventListener('click', onTabClick, false);
+    }
+  </script>
+  
+</body>
+</html>

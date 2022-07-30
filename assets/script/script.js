@@ -47,28 +47,7 @@ window.addEventListener("click", (event) => {
 /**
  * Nav and Tabs section
  */
-function openTabs(evt, sectionName) {
-  let i;
-  const tabcontent = document.getElementsByClassName("tabcontent");
-  const tablinks = document.getElementsByClassName("tablinks");
-  const sectionTarget = document.getElementById(sectionName);
 
-  for (i = 0; i < tabcontent.length; i++) {
-    tabcontent[i].style.display = "none";
-  }
-
-  for (i = 0; i < tablinks.length; i++) {
-    tablinks[i].className = tablinks[i].className.replace(" active", "");
-  }
-  
-  sectionTarget.style.display = "grid";
-  sectionTarget.style.justifyItems = "space-evenly";
-  sectionTarget.style.gridAutoFlow = "column";
-  sectionTarget.style.gridTemplateColumns = "1fr, 1fr";
-  sectionTarget.style.gap = "20px";
-
-  evt.currentTarget.className += " active";
-}
 
 function generateId() {
   return +new Date();

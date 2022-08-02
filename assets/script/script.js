@@ -204,13 +204,6 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 document.addEventListener(CUSTOM_RENDER_EVENT, function () {
-  console.log(books);
-  const uncompletedBookList = document.getElementById("finished");
-  const completedBookList = document.getElementById("not-finished");
-
-  uncompletedBookList.innerText = "";
-  completedBookList.innerText = "";
-
   for (const bookItem of books) {
     const bookElement = makeBook(bookItem);
     if (!bookItem.isCompleted) {

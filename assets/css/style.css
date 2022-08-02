@@ -471,6 +471,130 @@ footer .mylink:hover {
   justify-content: center;
 }
 
+#application .shows {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  gap: 40px;
+}
+
+#application .shows .show-wrapper {
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  border: 1px solid #000;
+  border-radius: 12px;
+  padding: 40px 20px;
+
+  
+  display: flex;
+  flex-direction: row;
+  flex: 1 0 100%;
+  gap: 40px;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+#application .shows .show-wrapper .heading {
+  width: 100%;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  justify-self: center;
+  align-items: center;
+  background-color: var(--dark-color);
+  margin-bottom: 20px;
+  color: white;
+  border-radius: 12px;
+  font-size: 15px;
+}
+
+.card-show {
+  width: 46%;
+  height: 100%;
+  padding: 20px 40px;
+  border: 1px solid black;
+  background-color: #fff;
+  border-radius: 12px;
+}
+
+.card-show .title {
+  font-size: 24px;
+  color: #000;
+}
+
+.card-show .description {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: stretch;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.card-show .description .desc-content {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+.card-show .description .desc-content p {
+  font-size: 18px;
+  margin-bottom: 6px;
+}
+
+.card-show .description .desc-content h4 {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.card-show .buttons {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 20px 0 0 0;
+}
+
+.card-show .buttons .btn-edit {
+  width: 85px;
+  height: 30px;
+  border: none;
+  background-color: #000;
+  color: #fff;
+  font-weight: 600;
+  font-size: 12px;
+}
+
+.card-show .buttons .btn-delete {
+  width: 85px;
+  height: 30px;
+  border: none;
+  background-color: #FF6262;
+  color: #fff;
+  font-weight: 600;
+  font-size: 12px;
+}
+
+.card-show .buttons .btn-mark {
+  width: 104px;
+  height: 30px;
+  border: none;
+  background-color: #79E290;
+  color: #000;
+  font-weight: 600;
+  font-size: 12px;
+}
+
+
+
+
+
+
 .mb-40 {
   margin-bottom: 40px;
 }

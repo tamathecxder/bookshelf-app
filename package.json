@@ -17,7 +17,5 @@
     "url": "https://github.com/tamathecxder/bookshelf-app/issues"
   },
   "homepage": "https://github.com/tamathecxder/bookshelf-app#readme",
-  "dependencies": {
-    "sweetalert2": "^11.4.24"
-  }
+  "dependencies": {}
 }

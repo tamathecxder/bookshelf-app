@@ -261,7 +261,7 @@ footer .mylink:hover {
   margin: auto;
   padding: 0;
   border: 1px solid #888;
-  width: 50%;
+  width: 45%;
   border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -293,6 +293,32 @@ footer .mylink:hover {
     opacity: 1;
   }
 }
+
+
+/* Add Animation */
+@-webkit-keyframes animatedown {
+  from {
+    bottom: -300px;
+    opacity: 0;
+  }
+  to {
+    bottom: 0;
+    opacity: 1;
+  }
+}
+
+@keyframes animatedown {
+  from {
+    bottom: -300px;
+    opacity: 0;
+  }
+  to {
+    bottom: 0;
+    opacity: 1;
+  }
+}
+
+
 
 /* The Close Button */
 .close {
@@ -361,6 +387,12 @@ footer .mylink:hover {
   display: flex;
   flex-direction: row;
   justify-content: start;
+  align-items: center;
+}
+
+.modal-body .form-container .completed-checkbox {
+  width: 20px;
+  height: 20px;
 }
 
 .modal-body .form-container .button-submit {
@@ -369,7 +401,8 @@ footer .mylink:hover {
   padding: 16px 0;
   border: none;
   background-color: #366efc;
-  font-size: 14px;
+  font-size: 17px;
+  font-weight: 600;
   color: #fff;
   transition: all 0.3s ease-in-out;
 }
@@ -478,7 +511,7 @@ footer .mylink:hover {
   flex-direction: column;
   width: 100%;
   height: 100%;
-  gap: 40px;
+  gap: 10px;
 }
 
 #application .shows .show-wrapper {
@@ -499,7 +532,7 @@ footer .mylink:hover {
   align-items: center;
 }
 
-#application .shows .show-wrapper .heading {
+.heading {
   width: 100%;
   height: 80px;
   display: flex;
@@ -507,10 +540,13 @@ footer .mylink:hover {
   justify-self: center;
   align-items: center;
   background-color: var(--dark-color);
-  margin-bottom: 20px;
   color: white;
   border-radius: 12px;
   font-size: 15px;
+}
+
+.bg-darker {
+  background-color: rgba(0, 0, 0, 0.9) !important;
 }
 
 .card-show {
@@ -523,8 +559,10 @@ footer .mylink:hover {
 }
 
 .card-show .title {
+  height: 80px;
   font-size: 24px;
   color: #000;
+  padding: 20px 0;
 }
 
 .card-show .description {
@@ -560,16 +598,6 @@ footer .mylink:hover {
   padding: 20px 0 0 0;
 }
 
-.card-show .buttons .btn-edit {
-  width: 85px;
-  height: 30px;
-  border: none;
-  background-color: #000;
-  color: #fff;
-  font-weight: 600;
-  font-size: 12px;
-}
-
 .card-show .buttons .btn-delete {
   width: 85px;
   height: 30px;
@@ -581,13 +609,17 @@ footer .mylink:hover {
 }
 
 .card-show .buttons .btn-mark {
-  width: 104px;
+  width: 160px;
   height: 30px;
   border: none;
   background-color: #79E290;
   color: #000;
   font-weight: 600;
   font-size: 12px;
+}
+
+.bg-yellow {
+  background-color: rgb(255, 255, 100) !important;
 }
 
 
@@ -597,6 +629,10 @@ footer .mylink:hover {
 
 .mb-40 {
   margin-bottom: 40px;
+}
+
+.mb-80 {
+  margin-bottom: 80px;
 }
 
 .force-flex {

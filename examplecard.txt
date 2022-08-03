@@ -1,18 +1,18 @@
-<div class="card-data col-6">
-  <div class="data-text">
-    <div class="data-desc">
-      <h2>Manusia Brontosaurus</h2>
-      <div class="data-sub-desc">
-        <h4>Author: </h4>
-        <span>Raditya Dika</span>
-      </div>
-      <div class="data-sub-desc">
-        <h4>Year: </h4>
-        <span>2014</span>
-      </div>
-    </div>
-    <div id="btn-container">
-      
-    </div>
-  </div>
-</div>
+<!-- <div class="card-show">
+                <h3 class="title">Manusia Brontosaurus</h3>
+                <div class="description">
+                  <div class="desc-content">
+                    <p>Author:</p>
+                    <h4>Raditya Dika</h4>
+                  </div>
+                  <div class="desc-content">
+                    <p>Year:</p>
+                    <h4>2013</h4>
+                  </div>
+                </div>
+                <div class="buttons">
+                  <button class="btn-edit">Edit</button>
+                  <button class="btn-delete">Delete</button>
+                  <button class="btn-mark">Mark Finished</button>
+                </div>
+              </div> -->

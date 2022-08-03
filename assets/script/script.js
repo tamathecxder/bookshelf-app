@@ -26,6 +26,17 @@ const CUSTOM_RENDER_EVENT = "render-bookshelf";
 const modal = document.getElementById("myModalElement");
 const button = document.getElementById("myModalButton");
 const closeModal = document.getElementById("closeModal");
+const check = document.getElementById('completed-checkbox');
+
+// check.addEventListener('change', function() {
+//   if (!check.checked) {
+//     check.value = 'tidak memek'
+//     console.log(check.value);
+//   } else {
+//     check.value = 'memek'
+//     console.log(check.value);
+//   }
+// });
 
 // ketika user click button nya, maka modal akan terbuka
 button.addEventListener("click", () => {
@@ -80,15 +91,30 @@ function saveDataToStorage() {
   }
 }
 
+function isCheckboxTrue() {
+  const checkbox = document.getElementById("completed-checkbox");
+
+  if (checkbox.checked) {
+    checkbox.value = true;
+  } else {
+    checkbox.value = false;
+  }
+
+  return checkbox.value;
+}
+
+
 function addBookList() {
   const titleInput = document.getElementById("title").value;
   const authorInput = document.getElementById("author").value;
   const yearInput = document.getElementById("year").value;
-  const checkbox = document.getElementById("completed-checkbox").value;
-
+  
+  const completedValue = isCheckboxTrue(); 
+  let isBooleanSet = (completedValue === 'true');
+  
   const generatedRandomID = generateId();
-  const bookObject = generateBookObject(generatedRandomID, titleInput, authorInput, yearInput, checkbox);
-  books.unshift(bookObject);
+  const bookObject = generateBookObject(generatedRandomID, titleInput, authorInput, yearInput, isBooleanSet);
+  books.push(bookObject);
 
   document.dispatchEvent(new Event(CUSTOM_RENDER_EVENT));
   saveDataToStorage();
@@ -119,22 +145,22 @@ function addBookToCompleted(bookId) {
 
   if (bookTarget == null) return;
 
-  bookTarget.isCompleted = true;
+  bookTarget.isComplete = true;
   document.dispatchEvent(new Event(CUSTOM_RENDER_EVENT));
   saveDataToStorage();
 }
 
 function undoBookFromCompleted(bookId) {
-  const bookTarget = findBookIndex(bookId);
+  const bookTarget = findBook(bookId);
 
   if (bookTarget == null) return;
 
-  bookTarget.isCompleted = false;
+  bookTarget.isComplete = false;
   document.dispatchEvent(new Event(CUSTOM_RENDER_EVENT));
   saveDataToStorage();
 }
 
-function removeBookBoth(bookId) {
+function removeBook(bookId) {
   const bookTarget = findBookIndex(bookId);
 
   if (bookTarget === -1) return;
@@ -145,32 +171,80 @@ function removeBookBoth(bookId) {
 }
 
 function makeBook(bookObject) {
-  const container = document.createElement("div");
-  container.setAttribute("id", `book-${bookObject.id}`);
+  const title = document.createElement('h3');
+  title.innerText = bookObject.title;
+  title.classList.add('title');
 
-  const cardElement = `
-    <div class="card-data col-6">
-      <div class="data-text">
-        <div class="data-desc">
-          <h2>${bookObject.title}</h2>
-          <div class="data-sub-desc">
-            <h4>Author: </h4>
-            <span>${bookObject.author}</span>
-          </div>
-          <div class="data-sub-desc">
-            <h4>Year: </h4>
-            <span>${bookObject.year}</span>
-          </div>
-        </div>
-        <div class="data-sub-button">
-          <button class="button-checked">BLABLABLA</button>
-        </div>
-      </div>
-    </div>
-  `;
+  const bookAuthorText = document.createElement('p');
+  const bookAuthorValue = document.createElement('h4');
+  bookAuthorText.innerText = 'Author:';
+  bookAuthorValue.innerText = bookObject.author;
+  
+  const bookYearText = document.createElement('p');
+  const bookYearValue = document.createElement('h4');
+  bookYearText.innerText = 'Year:';
+  bookYearValue.innerText = bookObject.year;
 
-  container.innerHTML += cardElement;
-  return container;
+  const descContentContainer_author = document.createElement('div');
+  const descContentContainer_year = document.createElement('div');
+
+  descContentContainer_author.classList.add('desc-content');
+  descContentContainer_year.classList.add('desc-content');
+
+  descContentContainer_author.append(bookAuthorText, bookAuthorValue);
+  descContentContainer_year.append(bookYearText, bookYearValue);
+
+  const descriptionContainer = document.createElement('div');
+  descriptionContainer.classList.add('description');
+  descriptionContainer.append(descContentContainer_author, descContentContainer_year);
+  
+  const cardShowContainer = document.createElement('div');
+  cardShowContainer.classList.add('card-show');
+  cardShowContainer.append(title, descriptionContainer);
+
+  // button wrapper
+  const buttonsContainer = document.createElement('div');
+  buttonsContainer.classList.add('buttons');
+  
+  // delete book global variable
+  const deleteButton = document.createElement('button');
+  deleteButton.classList.add('btn-delete');
+  deleteButton.innerText = 'Delete';
+
+  // checking book conditions
+  if (bookObject.isComplete) {
+    const undoButton = document.createElement('button');
+    undoButton.classList.add('btn-mark', 'bg-yellow');
+    undoButton.innerText = "Undo from completed";
+
+    undoButton.addEventListener('click', function() {
+      undoBookFromCompleted(bookObject.id);
+    });
+
+    deleteButton.addEventListener('click', function() {
+      removeBook(bookObject.id);
+    });
+
+    buttonsContainer.append(deleteButton, undoButton);
+    cardShowContainer.append(buttonsContainer);
+  } else {
+    const completedButton = document.createElement('button');
+    completedButton.classList.add('btn-mark');
+    completedButton.innerText = 'Add to completed';
+
+    completedButton.addEventListener('click', function() {
+      addBookToCompleted(bookObject.id);
+    });
+
+    deleteButton.addEventListener('click', function() {
+      removeBook(bookObject.id);
+    });
+
+    buttonsContainer.append(deleteButton, completedButton);
+    cardShowContainer.append(buttonsContainer);
+  }
+  
+  return cardShowContainer;
 }
 
 function loadDataFromStorage() {
@@ -193,9 +267,13 @@ function loadDataFromStorage() {
 
 document.addEventListener("DOMContentLoaded", function () {
   const myForm = document.getElementById("myForm");
+  
   myForm.addEventListener("submit", function (event) {
     event.preventDefault();
     addBookList();
+    
+    // reset all input fields value
+    myForm.reset();
   });
 
   if (isWebStorageExist()) {
@@ -204,9 +282,16 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 document.addEventListener(CUSTOM_RENDER_EVENT, function () {
+  console.log(books);
+  const uncompletedBookList = document.getElementById('not-finished');
+  const completedBookList = document.getElementById('finished');
+
+  uncompletedBookList.innerText = '';
+  completedBookList.innerText = '';
+
   for (const bookItem of books) {
     const bookElement = makeBook(bookItem);
-    if (!bookItem.isCompleted) {
+    if (!bookItem.isComplete) {
       uncompletedBookList.appendChild(bookElement);
     } else {
       completedBookList.appendChild(bookElement);
@@ -215,5 +300,5 @@ document.addEventListener(CUSTOM_RENDER_EVENT, function () {
 });
 
 document.addEventListener(CUSTOM_SAVED_EVENT, function () {
-  console.log("Data berhasil disimpan");
+  console.log("!");
 });

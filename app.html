@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="./assets/css/style.css" />
   </head>
   <body>
+    
     <!-- Custom container/wrapper -->
     <div class="wrapper">
       <nav>
@@ -49,10 +50,10 @@
                         <input type="number" min="1500" max="2025" class="form-control" id="year" name="year" required />
                       </div>
                       <div class="form-wrap form-check">
-                        <input type="checkbox" name="completed-checkbox" id="completed-checkbox" class="completed-checkbox" />
+                        <input type="checkbox" value="false" name="completed-checkbox" id="completed-checkbox" class="completed-checkbox" />
                         <label for="completed-checkbox">Completed Reading</label>
                       </div>
-                      <button type="submit" class="button-submit">Submit your book to the "unfinished reading" section</button>
+                      <button type="submit" class="button-submit">Submit</button>
                     </form>
                   </div>
                 </div>
@@ -76,90 +77,22 @@
         </section>
         <section id="show-section" class="mb-40">
           <div class="shows">
-            <div class="show-wrapper" id="finished">
-              <div class="heading">
-                <h2>Finished</h2>
-              </div>
-              <div class="card-show">
-                <h3 class="title">Manusia Brontosaurus</h3>
-                <div class="description">
-                  <div class="desc-content">
-                    <p>Author:</p>
-                    <h4>Raditya Dika</h4>
-                  </div>
-                  <div class="desc-content">
-                    <p>Year:</p>
-                    <h4>2013</h4>
-                  </div>
-                </div>
-                <div class="buttons">
-                  <button class="btn-edit">Edit</button>
-                  <button class="btn-delete">Delete</button>
-                  <button class="btn-mark">Mark Finished</button>
-                </div>
-              </div>
-              <div class="card-show">
-                <h3 class="title">Manusia Brontosaurus</h3>
-                <div class="description">
-                  <div class="desc-content">
-                    <p>Author:</p>
-                    <h4>Raditya Dika</h4>
-                  </div>
-                  <div class="desc-content">
-                    <p>Year:</p>
-                    <h4>2013</h4>
-                  </div>
-                </div>
-                <div class="buttons">
-                  <button class="btn-edit">Edit</button>
-                  <button class="btn-delete">Delete</button>
-                  <button class="btn-mark">Mark Finished</button>
-                </div>
-              </div>
-              <div class="card-show">
-                <h3 class="title">Manusia Brontosaurus</h3>
-                <div class="description">
-                  <div class="desc-content">
-                    <p>Author:</p>
-                    <h4>Raditya Dika</h4>
-                  </div>
-                  <div class="desc-content">
-                    <p>Year:</p>
-                    <h4>2013</h4>
-                  </div>
-                </div>
-                <div class="buttons">
-                  <button class="btn-edit">Edit</button>
-                  <button class="btn-delete">Delete</button>
-                  <button class="btn-mark">Mark Finished</button>
-                </div>
-              </div>
-              <div class="card-show">
-                <h3 class="title">Manusia Brontosaurus</h3>
-                <div class="description">
-                  <div class="desc-content">
-                    <p>Author:</p>
-                    <h4>Raditya Dika</h4>
-                  </div>
-                  <div class="desc-content">
-                    <p>Year:</p>
-                    <h4>2013</h4>
-                  </div>
-                </div>
-                <div class="buttons">
-                  <button class="btn-edit">Edit</button>
-                  <button class="btn-delete">Delete</button>
-                  <button class="btn-mark">Mark Finished</button>
-                </div>
-              </div>
+            <!-- Finished Section -->
+            <div class="heading">
+              <h2>Finished</h2>
             </div>
-            <div class="show-wrapper" id="unfinished">
-              <div class="card-show">
+            <div class="show-wrapper mb-80" id="finished">
+              <!-- here the data will appear -->
+            </div>
 
-              </div>
+            <!-- Not Finished Section -->
+            <div class="heading bg-darker">
+              <h2>Not Finished</h2>
+            </div>
+            <div class="show-wrapper mb-40" id="not-finished">
+              <!-- here the data will appear -->
             </div>
           </div>
-          
         </section>
       </main>
     </div>

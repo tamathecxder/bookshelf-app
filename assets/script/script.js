@@ -26,7 +26,7 @@ const CUSTOM_RENDER_EVENT = "render-bookshelf";
 const modal = document.getElementById("myModalElement");
 const button = document.getElementById("myModalButton");
 const closeModal = document.getElementById("closeModal");
-const check = document.getElementById('completed-checkbox');
+const check = document.getElementById("completed-checkbox");
 
 // check.addEventListener('change', function() {
 //   if (!check.checked) {
@@ -58,7 +58,6 @@ window.addEventListener("click", (event) => {
 /**
  * Nav and Tabs section
  */
-
 
 function generateId() {
   return +new Date();
@@ -103,15 +102,14 @@ function isCheckboxTrue() {
   return checkbox.value;
 }
 
-
 function addBookList() {
   const titleInput = document.getElementById("title").value;
   const authorInput = document.getElementById("author").value;
   const yearInput = document.getElementById("year").value;
-  
-  const completedValue = isCheckboxTrue(); 
-  let isBooleanSet = (completedValue === 'true');
-  
+
+  const completedValue = isCheckboxTrue();
+  let isBooleanSet = completedValue === "true";
+
   const generatedRandomID = generateId();
   const bookObject = generateBookObject(generatedRandomID, titleInput, authorInput, yearInput, isBooleanSet);
   books.push(bookObject);
@@ -171,79 +169,105 @@ function removeBook(bookId) {
 }
 
 function makeBook(bookObject) {
-  const title = document.createElement('h3');
+  const title = document.createElement("h3");
   title.innerText = bookObject.title;
-  title.classList.add('title');
+  title.classList.add("title");
 
-  const bookAuthorText = document.createElement('p');
-  const bookAuthorValue = document.createElement('h4');
-  bookAuthorText.innerText = 'Author:';
+  const bookAuthorText = document.createElement("p");
+  const bookAuthorValue = document.createElement("h4");
+  bookAuthorText.innerText = "Author:";
   bookAuthorValue.innerText = bookObject.author;
-  
-  const bookYearText = document.createElement('p');
-  const bookYearValue = document.createElement('h4');
-  bookYearText.innerText = 'Year:';
+
+  const bookYearText = document.createElement("p");
+  const bookYearValue = document.createElement("h4");
+  bookYearText.innerText = "Year:";
   bookYearValue.innerText = bookObject.year;
 
-  const descContentContainer_author = document.createElement('div');
-  const descContentContainer_year = document.createElement('div');
+  const descContentContainer_author = document.createElement("div");
+  const descContentContainer_year = document.createElement("div");
 
-  descContentContainer_author.classList.add('desc-content');
-  descContentContainer_year.classList.add('desc-content');
+  descContentContainer_author.classList.add("desc-content");
+  descContentContainer_year.classList.add("desc-content");
 
   descContentContainer_author.append(bookAuthorText, bookAuthorValue);
   descContentContainer_year.append(bookYearText, bookYearValue);
 
-  const descriptionContainer = document.createElement('div');
-  descriptionContainer.classList.add('description');
+  const descriptionContainer = document.createElement("div");
+  descriptionContainer.classList.add("description");
   descriptionContainer.append(descContentContainer_author, descContentContainer_year);
-  
-  const cardShowContainer = document.createElement('div');
-  cardShowContainer.classList.add('card-show');
+
+  const cardShowContainer = document.createElement("div");
+  cardShowContainer.classList.add("card-show");
   cardShowContainer.append(title, descriptionContainer);
 
   // button wrapper
-  const buttonsContainer = document.createElement('div');
-  buttonsContainer.classList.add('buttons');
-  
+  const buttonsContainer = document.createElement("div");
+  buttonsContainer.classList.add("buttons");
+
   // delete book global variable
-  const deleteButton = document.createElement('button');
-  deleteButton.classList.add('btn-delete');
-  deleteButton.innerText = 'Delete';
+  const deleteButton = document.createElement("button");
+  deleteButton.classList.add("btn-delete");
+  deleteButton.innerText = "Delete";
 
   // checking book conditions
   if (bookObject.isComplete) {
-    const undoButton = document.createElement('button');
-    undoButton.classList.add('btn-mark', 'bg-yellow');
+    const undoButton = document.createElement("button");
+    undoButton.classList.add("btn-mark", "bg-yellow");
     undoButton.innerText = "Undo from completed";
 
-    undoButton.addEventListener('click', function() {
+    undoButton.addEventListener("click", function () {
       undoBookFromCompleted(bookObject.id);
     });
 
-    deleteButton.addEventListener('click', function() {
-      removeBook(bookObject.id);
+    deleteButton.addEventListener("click", function () {
+      Swal.fire({
+        title: "Are you sure?",
+        text: "You won't be able to revert this!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, delete it!",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          Swal.fire("Deleted!", "Your file has been deleted.", "success");
+          removeBook(bookObject.id);
+        }
+      });
     });
 
     buttonsContainer.append(deleteButton, undoButton);
     cardShowContainer.append(buttonsContainer);
   } else {
-    const completedButton = document.createElement('button');
-    completedButton.classList.add('btn-mark');
-    completedButton.innerText = 'Add to completed';
+    const completedButton = document.createElement("button");
+    completedButton.classList.add("btn-mark");
+    completedButton.innerText = "Add to completed";
 
-    completedButton.addEventListener('click', function() {
+    completedButton.addEventListener("click", function () {
       addBookToCompleted(bookObject.id);
     });
 
-    deleteButton.addEventListener('click', function() {
-      removeBook(bookObject.id);
+    deleteButton.addEventListener("click", function () {
+      Swal.fire({
+        title: "Are you sure?",
+        text: "You won't be able to revert this!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, delete it!",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          Swal.fire("Deleted!", "Your file has been deleted.", "success");
+          removeBook(bookObject.id);
+        }
+      });
     });
 
     buttonsContainer.append(deleteButton, completedButton);
     cardShowContainer.append(buttonsContainer);
   }
-  
+
   return cardShowContainer;
 }
 
@@ -267,11 +291,11 @@ function loadDataFromStorage() {
 
 document.addEventListener("DOMContentLoaded", function () {
   const myForm = document.getElementById("myForm");
-  
+
   myForm.addEventListener("submit", function (event) {
     event.preventDefault();
     addBookList();
-    
+
     // reset all input fields value
     myForm.reset();
   });
@@ -283,11 +307,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
 document.addEventListener(CUSTOM_RENDER_EVENT, function () {
   console.log(books);
-  const uncompletedBookList = document.getElementById('not-finished');
-  const completedBookList = document.getElementById('finished');
+  const uncompletedBookList = document.getElementById("not-finished");
+  const completedBookList = document.getElementById("finished");
 
-  uncompletedBookList.innerText = '';
-  completedBookList.innerText = '';
+  uncompletedBookList.innerText = "";
+  completedBookList.innerText = "";
 
   for (const bookItem of books) {
     const bookElement = makeBook(bookItem);

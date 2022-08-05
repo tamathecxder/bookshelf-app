@@ -306,10 +306,14 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 document.addEventListener(CUSTOM_RENDER_EVENT, function () {
-  console.log(books);
   const uncompletedBookList = document.getElementById("not-finished");
   const completedBookList = document.getElementById("finished");
-
+  
+  if (books.length < 1) {
+    console.log('the data is empty');
+  }
+  // console.log(books);
+  
   uncompletedBookList.innerText = "";
   completedBookList.innerText = "";
 
@@ -324,5 +328,9 @@ document.addEventListener(CUSTOM_RENDER_EVENT, function () {
 });
 
 document.addEventListener(CUSTOM_SAVED_EVENT, function () {
-  console.log("!");
+  Swal.fire(
+    'Successfully!',
+    'You make a change. Good Job👌🏼',
+    'success'
+  )
 });

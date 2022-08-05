@@ -608,6 +608,16 @@ footer .mylink:hover {
   font-size: 12px;
 }
 
+.card-show .buttons .btn-delete:hover {
+  opacity: 0.9;
+  cursor: pointer;
+}
+
+.card-show .buttons .btn-mark:hover {
+  opacity: 0.9;
+  cursor: pointer;
+}
+
 .card-show .buttons .btn-mark {
   width: 160px;
   height: 30px;

@@ -545,9 +545,9 @@ footer .mylink:hover {
 }
 
 .search-modal-content .search-input-wrapper .search-input {
-  height: 40px;
+  height: 50px;
   width: 50%;
-  font-size: 14px;
+  font-size: 13px;
   padding: 8px;
 }
 
@@ -556,7 +556,7 @@ footer .mylink:hover {
 }
 
 .search-modal-content .search-input-wrapper .button-search {
-  height: 40px;  
+  height: 50px;  
   width: 10%;
   border: none;
   background-color: var(--dark-color);

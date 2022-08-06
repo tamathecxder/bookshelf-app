@@ -284,6 +284,25 @@ function loadDataFromStorage() {
   document.dispatchEvent(new Event(CUSTOM_RENDER_EVENT));
 }
 
+// search modal
+const searchModal = document.querySelector('.search-modal');
+const trigger = document.querySelector('.search-input');
+const closeButton = document.querySelector('.close-button');
+
+function toggleModal() {
+  searchModal.classList.toggle('show-search-modal');
+}
+
+function windowOnClick(event) {
+  if (event.target === searchModal) {
+    toggleModal();
+  }
+}
+
+trigger.addEventListener("click", toggleModal);
+closeButton.addEventListener('click', toggleModal);
+window.addEventListener('click', windowOnClick);
+
 /**
  * All Event Listener
  *

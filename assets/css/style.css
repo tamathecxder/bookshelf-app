@@ -54,7 +54,8 @@ nav .nav-content img {
 nav .nav-content h2 {
   font-family: var(--comfortaa);
   font-weight: 700;
-  font-size: 22px;
+  font-size: 20px;
+  text-transform: uppercase;
 }
 
 main {
@@ -495,6 +496,59 @@ footer .mylink:hover {
   cursor: pointer;
   opacity: 0.8;
 }
+
+
+/* SEARCH MODAL */
+.search-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0, 0, 0.5);
+  opacity: 0;
+  visibility: hidden;
+  transform: scale(1.1);
+  transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
+}
+
+.search-modal-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  padding: 100px 100px;
+  width: 24rem;
+  border-radius: 0.5rem;
+}
+
+.close-button {
+  position: absolute;
+  top: 5%;
+  right: 5%;
+  width: 2rem;
+  line-height: 2rem;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 0.25rem;
+  background-color: lightgray;
+}
+
+.close-button:hover {
+  background-color: darkgray;
+}
+
+.show-search-modal {
+  opacity: 1;
+  visibility: visible;
+  transform: scale(1.0);
+  transition: visibility 0s linear 0s, opacity 0.50s 0s, transform 0.50s;
+}
+
+
+
+
 
 /* Show section style */
 #application #show-section {

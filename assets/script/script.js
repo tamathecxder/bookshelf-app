@@ -286,7 +286,7 @@ function loadDataFromStorage() {
 
 // search modal
 const searchModal = document.querySelector('.search-modal');
-const trigger = document.querySelector('.search-input');
+const trigger = document.querySelector('.search-trigger');
 const closeButton = document.querySelector('.close-button');
 
 function toggleModal() {

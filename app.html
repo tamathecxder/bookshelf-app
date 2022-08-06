@@ -66,10 +66,10 @@
               <h4>Search based on predefined criteria:</h4>
             </div>
             <div class="searchbox">
-              <input type="text" class="search-input" name="search-input" id="search-input" placeholder="This feature is to search for your book " />
-              <button type="submit" class="button-search">
+              <input type="text" class="search-trigger" name="search-trigger" id="search-trigger" placeholder="This feature is to search for your book " />
+              <button type="submit" class="button-expand">
                 <img src="./assets/img/fa_search.svg" alt="" />
-                <span>Search</span>
+                <span>Expand</span>
               </button>
             </div>
 
@@ -79,11 +79,17 @@
                 <span class="close-button">&times;</span>
                 
                 <!-- CONTENT -->
+                <form>
+                  <div class="search-input-wrapper">
+                    <input type="text" id="search-input" class="search-input" name="search-input" placeholder="Input your list by title / author / year..." />
+                    <button class="button-search">Search</button>
+                  </div>
+                </form>
                 <table id="result-table">
                   <tr>
-                    <th>Company</th>
-                    <th>Contact</th>
-                    <th>Country</th>
+                    <th>Book title</th>
+                    <th>Author</th>
+                    <th>Year</th>
                   </tr>
                   <tr>
                     <td colspan="3">No data</td>

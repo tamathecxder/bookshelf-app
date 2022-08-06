@@ -462,7 +462,7 @@ footer .mylink:hover {
   /* background-color: cyan; */
 }
 
-#application .card-search .searchbox .search-input {
+#application .card-search .searchbox .search-trigger {
   width: 80%;
   height: 60px;
   padding: 20px;
@@ -471,11 +471,11 @@ footer .mylink:hover {
   border: none;
 }
 
-#application .card-search .searchbox .search-input:focus {
+#application .card-search .searchbox .search-trigger:focus {
   outline: 1px solid rgba(0, 0, 0, 0.6);
 }
 
-#application .card-search .searchbox .button-search {
+#application .card-search .searchbox .button-expand {
   width: 20%;
   height: 60px;
   background-color: var(--dark-color);
@@ -492,7 +492,7 @@ footer .mylink:hover {
   transition: all 0.2s ease-in-out;
 }
 
-#application .card-search .searchbox .button-search:hover {
+#application .card-search .searchbox .button-expand:hover {
   cursor: pointer;
   opacity: 0.8;
 }
@@ -525,7 +525,7 @@ footer .mylink:hover {
 
 .close-button {
   position: absolute;
-  top: 5%;
+  top: 8%;
   right: 5%;
   width: 2rem;
   line-height: 2rem;
@@ -533,6 +533,40 @@ footer .mylink:hover {
   cursor: pointer;
   border-radius: 0.25rem;
   background-color: lightgray;
+}
+
+/* seach input */
+.search-modal-content .search-input-wrapper {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 0;
+  margin-bottom: 20px;
+}
+
+.search-modal-content .search-input-wrapper .search-input {
+  height: 40px;
+  width: 50%;
+  font-size: 14px;
+  padding: 8px;
+}
+
+.search-modal-content .search-input-wrapper .search-input:focus {
+  outline: none;
+}
+
+.search-modal-content .search-input-wrapper .button-search {
+  height: 40px;  
+  width: 10%;
+  border: none;
+  background-color: var(--dark-color);
+  color: #fff;
+  font-weight: 700;
+}
+
+.search-modal-content .search-input-wrapper .button-search:hover {
+  cursor: pointer;
+  opacity: 0.9;
 }
 
 .close-button:hover {

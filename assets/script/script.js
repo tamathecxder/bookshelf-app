@@ -13,14 +13,14 @@
 * 
 */
 
-// Initialize Important Variables
+// Initialize important variables
 const books = [];
 const WEB_STORAGE_KEY = "BOOKSHELF_APPS";
 const CUSTOM_SAVED_EVENT = "saved-bookshelf";
 const CUSTOM_RENDER_EVENT = "render-bookshelf";
 
 /**
- * Modal Section
+ * Input Books Modal Section
  */
 
 const modal = document.getElementById("myModalElement");
@@ -28,36 +28,22 @@ const button = document.getElementById("myModalButton");
 const closeModal = document.getElementById("closeModal");
 const check = document.getElementById("completed-checkbox");
 
-// check.addEventListener('change', function() {
-//   if (!check.checked) {
-//     check.value = 'tidak memek'
-//     console.log(check.value);
-//   } else {
-//     check.value = 'memek'
-//     console.log(check.value);
-//   }
-// });
-
-// ketika user click button nya, maka modal akan terbuka
 button.addEventListener("click", () => {
-  modal.style.display = "block";
+  modal.classList.add("show-modal");
+  modal.classList.remove("hide-modal");
 });
 
-// ketika user click pada closeModal, maka modal nya akan tertutup
 closeModal.addEventListener("click", () => {
-  modal.style.display = "none";
+  modal.classList.add("hide-modal");
+  modal.classList.remove("show-modal");
 });
 
-// ketika user click dimanapun diluar modal, maka modal juga akan tertutup
 window.addEventListener("click", (event) => {
   if (event.target == modal) {
-    modal.style.display = "none";
+    modal.classList.add("hide-modal");
+    modal.classList.remove("show-modal");
   }
 });
-
-/**
- * Nav and Tabs section
- */
 
 function generateId() {
   return +new Date();
@@ -284,13 +270,18 @@ function loadDataFromStorage() {
   document.dispatchEvent(new Event(CUSTOM_RENDER_EVENT));
 }
 
-// search modal
-const searchModal = document.querySelector('.search-modal');
-const trigger = document.querySelector('.search-trigger');
-const closeButton = document.querySelector('.close-button');
+/**
+ * Search Feature
+ */
+
+const formSearch = document.getElementById("form-search");
+const searchModal = document.querySelector(".search-modal");
+const trigger = document.querySelector(".search-trigger");
+const closeButton = document.querySelector(".close-button");
+const buttonExpand = document.querySelector(".button-expand");
 
 function toggleModal() {
-  searchModal.classList.toggle('show-search-modal');
+  searchModal.classList.toggle("show-search-modal");
 }
 
 function windowOnClick(event) {
@@ -299,9 +290,61 @@ function windowOnClick(event) {
   }
 }
 
+formSearch.addEventListener("submit", function(event) {
+  event.preventDefault();
+});
+
 trigger.addEventListener("click", toggleModal);
-closeButton.addEventListener('click', toggleModal);
-window.addEventListener('click', windowOnClick);
+buttonExpand.addEventListener("click", toggleModal);
+closeButton.addEventListener("click", toggleModal);
+window.addEventListener("click", windowOnClick);
+
+function searchBook() {
+  const searchInput = document.getElementById("search-input");
+  const searchValue = searchInput.value.toLowerCase();
+  const resultTable = document.querySelector("#result-table tbody");
+
+  const filteredBooks = books.filter((book) => {
+    return book.title.toLowerCase().includes(searchValue) || book.author.toLowerCase().includes(searchValue) || book.year.toLowerCase().includes(searchValue);
+  });
+
+  resultTable.innerHTML = "";
+
+  for (const book of filteredBooks) {
+    const bookRow = document.createElement("tr");
+    bookRow.innerHTML = `<td>${book.title}</td>
+    <td>${book.author}</td>
+    <td>${book.year}</td>
+    <td>${book.isComplete ? "Completed" : "Not Completed"}</td>`;
+
+    resultTable.append(bookRow);
+  }
+
+  if (filteredBooks.length === 0) {
+    resultTable.innerHTML = `<tr><td colspan="4" style="text-align: center;">Data tidak ditemukan</td></tr>`;
+  }
+}
+
+const searchInput = document.getElementById("search-input");
+searchInput.addEventListener("keyup", searchBook);
+
+function showAllData() {
+  const resultTable = document.querySelector("#result-table tbody");
+  resultTable.innerHTML = "";
+
+  for (const book of books) {
+    const bookRow = document.createElement("tr");
+    bookRow.innerHTML = `
+      <td>${book.title}</td>
+      <td>${book.author}</td>
+      <td>${book.year}</td>
+      <td>${book.isComplete ? "Complete" : "Not Complete"}</td>
+    `;
+    resultTable.append(bookRow);
+  }
+}
+
+trigger.addEventListener("click", showAllData);
 
 /**
  * All Event Listener
@@ -313,9 +356,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
   myForm.addEventListener("submit", function (event) {
     event.preventDefault();
-    addBookList();
 
-    // reset all input fields value
+    addBookList();
     myForm.reset();
   });
 
@@ -327,12 +369,13 @@ document.addEventListener("DOMContentLoaded", function () {
 document.addEventListener(CUSTOM_RENDER_EVENT, function () {
   const uncompletedBookList = document.getElementById("not-finished");
   const completedBookList = document.getElementById("finished");
-  
+
   if (books.length < 1) {
-    console.log('the data is empty');
+    console.log("the data is empty");
   }
+
   // console.log(books);
-  
+
   uncompletedBookList.innerText = "";
   completedBookList.innerText = "";
 
@@ -347,9 +390,5 @@ document.addEventListener(CUSTOM_RENDER_EVENT, function () {
 });
 
 document.addEventListener(CUSTOM_SAVED_EVENT, function () {
-  Swal.fire(
-    'Successfully!',
-    'You make a change. Good Job👌🏼',
-    'success'
-  )
+  Swal.fire("Successfully!", "You make a change. Good Job👌🏼", "success");
 });

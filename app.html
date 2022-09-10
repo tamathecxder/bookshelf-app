@@ -13,7 +13,9 @@
       <nav>
         <div class="nav-content">
           <img src="./assets/img/library-books.svg" alt="" />
-          <h2>Mono-Bookshelf</h2>
+          <a href="./index.html" style="text-decoration: none; color: #000;">
+            <h2>Mono-Bookshelf</h2>
+          </a>
         </div>
       </nav>
 
@@ -27,7 +29,7 @@
               <h2>Insert your new book list here:</h2>
               <button type="button" id="myModalButton" class="button-insert">+ Add new book</button>
 
-              <div class="modal" id="myModalElement">
+              <div class="modal hide-modal" id="myModalElement">
                 <!-- Modal content -->
                 <div class="modal-content">
                   <div class="modal-header">
@@ -63,7 +65,7 @@
         <section id="search-section" class="mb-40">
           <div class="card-search">
             <div class="search-label">
-              <h4>Search based on predefined criteria:</h4>
+              <h4>Search based on spesificied criteria:</h4>
             </div>
             <div class="searchbox">
               <input type="text" class="search-trigger" name="search-trigger" id="search-trigger" placeholder="This feature is to search for your book " />
@@ -79,21 +81,25 @@
                 <span class="close-button">&times;</span>
                 
                 <!-- CONTENT -->
-                <form>
+                <form id="form-search">
                   <div class="search-input-wrapper">
                     <input type="text" id="search-input" class="search-input" name="search-input" placeholder="Input your list by title / author / year..." />
-                    <button class="button-search">Search</button>
                   </div>
                 </form>
                 <table id="result-table">
-                  <tr>
-                    <th>Book title</th>
-                    <th>Author</th>
-                    <th>Year</th>
-                  </tr>
-                  <tr>
-                    <td colspan="3">No data</td>
-                  </tr>
+                  <thead>
+                    <tr>
+                      <th>Book title</th>
+                      <th>Author</th>
+                      <th>Year</th>
+                      <th>Description</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td colspan="3">No result displayed</td>
+                    </tr>
+                  </tbody>
                 </table>
               </div>
             </div>

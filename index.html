@@ -19,7 +19,7 @@
       <main>
         <section id="hero-text">
           <div class="text-content col-10">
-            <h1>Organize your books into our simple <span style="color: #494949; font-weight: 600;">"bookshelf"</span> management app</h1>
+            <h1 id="typeit-text"></h1>
             <p>A very simple and efficient book management system to organize your books according to the completion of your reading.</p>
             <a href="./app.html" class="button-cta">Try now!</a>
           </div>
@@ -36,6 +36,16 @@
       </footer>
     </div>
 
-    <script src="./assets/script/script.js"></script>
+    <script src="./assets/script/typeit/index.umd.js"></script>
+    <script>
+      const typeitText = document.querySelector("#typeit-text");
+      new TypeIt(typeitText, {
+        html: true,
+        strings: `Organize your books into our simple <span style="color: #494949; font-weight: 600;">"bookshelf"</span> management app.`,
+        speed: 100,
+        loop: true,
+        loopDelay: 5000,
+      }).go();
+    </script>
   </body>
 </html>
